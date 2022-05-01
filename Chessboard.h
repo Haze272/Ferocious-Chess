@@ -18,7 +18,7 @@ public:
     Piece getBoard(int i, int j){return m_board[i][j];}
 
     void            LoadBoardFromFile(string& path);
-    VecOfPositions  GetValidMoves(ChessPosition& pos);
+    VecOfPositions * GetValidMoves(ChessPosition& pos);
     bool            MovePiece(ChessPosition& posFrom, ChessPosition& posTo);
     string          ToString();
     ChessPieceColor GetPieceColorAtPos(ChessPosition& pos);

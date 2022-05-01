@@ -13,7 +13,10 @@ int main() {
     juega1.addFigure(black_king, 4, 0);
 
     ChessPosition cp("e8");
-    juega1.GetValidMoves(cp);
+    VecOfPositions mn = *(juega1.GetValidMoves(cp));
+    for (auto& v : mn){
+        cout << v.getPosX() << " " << v.getPosY();
+    }
 
     return 0;
 }

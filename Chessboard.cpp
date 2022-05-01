@@ -15,7 +15,7 @@ void Chessboard::addFigure(Piece piece, int x, int y) {
 
 Chessboard::Chessboard() {}
 
-VecOfPositions Chessboard::GetValidMoves(ChessPosition &pos) {
+VecOfPositions* Chessboard::GetValidMoves(ChessPosition &pos) {
     VecOfPositions *validMoves = new VecOfPositions;
     int x = pos.getPosX();
     int y = pos.getPosY();
@@ -23,14 +23,10 @@ VecOfPositions Chessboard::GetValidMoves(ChessPosition &pos) {
 
     if (GetPieceTypeAtPos(pos) == 0) {
         // WORKING
-        for(int i = x-1; i < x+2; i++) {
-            for(int j = y-1; j < y+2; j++) {
-                // TODO
-            }
-        }
+        // TODO
 
-        ChessPosition *p1 = new ChessPosition("");
-        validMoves->push_back(p1);
+        ChessPosition *p1 = new ChessPosition("a0");
+        validMoves->push_back(*p1);
 
     }
 
