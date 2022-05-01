@@ -8,8 +8,7 @@ int main() {
     black_queen.setColor(CPC_Black);
     black_queen.setType(CPT_Queen);
 
-    cout << black_queen.ToString() << endl;
-    cout << black_queen.igorToString() << endl;
+
 
     return 0;
 }
