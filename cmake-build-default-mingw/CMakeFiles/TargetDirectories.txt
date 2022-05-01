@@ -1,0 +1,3 @@
+C:/Users/studi/CLionProjects/igor_shit/cmake-build-default-mingw/CMakeFiles/igor_shit.dir
+C:/Users/studi/CLionProjects/igor_shit/cmake-build-default-mingw/CMakeFiles/edit_cache.dir
+C:/Users/studi/CLionProjects/igor_shit/cmake-build-default-mingw/CMakeFiles/rebuild_cache.dir

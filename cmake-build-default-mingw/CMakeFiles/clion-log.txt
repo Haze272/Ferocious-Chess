@@ -1,0 +1,4 @@
+C:\Users\studi\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5080.224\bin\cmake\win\bin\cmake.exe -DCMAKE_MAKE_PROGRAM=C:/Users/studi/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5080.224/bin/ninja/win/ninja.exe -G Ninja -S C:\Users\studi\CLionProjects\igor_shit -B C:\Users\studi\CLionProjects\igor_shit\cmake-build-default-mingw
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/studi/CLionProjects/igor_shit/cmake-build-default-mingw
