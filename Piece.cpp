@@ -48,9 +48,32 @@ string Piece::ToString() {
         default:
             pieza.append(1, '*');
             break;
+
     }
 
     return pieza;
 }
 
-string Piece::igorToString() {}
+string Piece::igorToString() {
+    string pieza;
+    string str1, str2;
+
+    switch (this->getType()) {
+        case 0: str1 = 'R'; break;
+        case 1: str1 = 'D'; break;
+        case 2: str1 = 'T'; break;
+        case 3: str1 = 'A'; break;
+        case 4: str1 = 'C'; break;
+        case 5: str1 = 'P'; break;
+        default: str1 = '*'; break;
+    }
+
+    switch (this->getColor()) {
+        case 0: str2 = 'N'; break;
+        case 1: str2 = 'B'; break;
+        default: str2 = '*'; break;
+    }
+
+    pieza = str1 + str2;
+    return pieza;
+}

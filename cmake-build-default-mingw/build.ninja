@@ -56,6 +56,18 @@ build CMakeFiles/igor_shit.dir/Piece.cpp.obj: CXX_COMPILER__igor_shit_ C$:/Users
   OBJECT_DIR = CMakeFiles\igor_shit.dir
   OBJECT_FILE_DIR = CMakeFiles\igor_shit.dir
 
+build CMakeFiles/igor_shit.dir/ChessPosition.cpp.obj: CXX_COMPILER__igor_shit_ C$:/Users/studi/CLionProjects/igor_shit/ChessPosition.cpp || cmake_object_order_depends_target_igor_shit
+  DEP_FILE = CMakeFiles\igor_shit.dir\ChessPosition.cpp.obj.d
+  FLAGS = -std=gnu++1y
+  OBJECT_DIR = CMakeFiles\igor_shit.dir
+  OBJECT_FILE_DIR = CMakeFiles\igor_shit.dir
+
+build CMakeFiles/igor_shit.dir/Chessboard.cpp.obj: CXX_COMPILER__igor_shit_ C$:/Users/studi/CLionProjects/igor_shit/Chessboard.cpp || cmake_object_order_depends_target_igor_shit
+  DEP_FILE = CMakeFiles\igor_shit.dir\Chessboard.cpp.obj.d
+  FLAGS = -std=gnu++1y
+  OBJECT_DIR = CMakeFiles\igor_shit.dir
+  OBJECT_FILE_DIR = CMakeFiles\igor_shit.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target igor_shit
@@ -64,7 +76,7 @@ build CMakeFiles/igor_shit.dir/Piece.cpp.obj: CXX_COMPILER__igor_shit_ C$:/Users
 #############################################
 # Link the executable igor_shit.exe
 
-build igor_shit.exe: CXX_EXECUTABLE_LINKER__igor_shit_ CMakeFiles/igor_shit.dir/main.cpp.obj CMakeFiles/igor_shit.dir/Piece.cpp.obj
+build igor_shit.exe: CXX_EXECUTABLE_LINKER__igor_shit_ CMakeFiles/igor_shit.dir/main.cpp.obj CMakeFiles/igor_shit.dir/Piece.cpp.obj CMakeFiles/igor_shit.dir/ChessPosition.cpp.obj CMakeFiles/igor_shit.dir/Chessboard.cpp.obj
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\igor_shit.dir
   POST_BUILD = cd .

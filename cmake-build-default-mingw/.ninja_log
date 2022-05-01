@@ -1,6 +1,5 @@
 # ninja log v5
-0	226	6730902932818404	CMakeFiles/igor_shit.dir/main.cpp.obj	7e689f3ca461df75
-228	343	6730902933974764	igor_shit.exe	118719eeaf9f72da
-12	189	6730915213144602	CMakeFiles/igor_shit.dir/Piece.cpp.obj	e002869c42076af2
-3	230	6730915213541397	CMakeFiles/igor_shit.dir/main.cpp.obj	7e689f3ca461df75
-231	349	6730915214696565	igor_shit.exe	9cd513083e6bc14a
+2	234	6730920462691722	CMakeFiles/igor_shit.dir/main.cpp.obj	7e689f3ca461df75
+94	207	6730925860023273	igor_shit.exe	874eb6ef25340914
+12	205	6730920462392981	CMakeFiles/igor_shit.dir/Piece.cpp.obj	e002869c42076af2
+2	94	6730925858922848	CMakeFiles/igor_shit.dir/ChessPosition.cpp.obj	b45aaafa7b637d2c
