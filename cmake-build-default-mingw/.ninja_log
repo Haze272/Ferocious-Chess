@@ -1,5 +1,22 @@
 # ninja log v5
-2	234	6730920462691722	CMakeFiles/igor_shit.dir/main.cpp.obj	7e689f3ca461df75
-94	207	6730925860023273	igor_shit.exe	874eb6ef25340914
+5	250	6730950376453250	CMakeFiles/igor_shit.dir/main.cpp.obj	7e689f3ca461df75
 12	205	6730920462392981	CMakeFiles/igor_shit.dir/Piece.cpp.obj	e002869c42076af2
-2	94	6730925858922848	CMakeFiles/igor_shit.dir/ChessPosition.cpp.obj	b45aaafa7b637d2c
+250	387	6730950624213149	igor_shit.exe	cc968494674186d7
+3	275	6730950376718693	CMakeFiles/igor_shit.dir/ChessPosition.cpp.obj	b45aaafa7b637d2c
+3	250	6730950622847063	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+1	216	6730953737163620	build.ninja	8e082f78ce0940e9
+16	267	6730956151223623	CMakeFiles/igor_shit.dir/main.cpp.obj	7e689f3ca461df75
+3	302	6730956151567395	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+302	422	6730956152734999	igor_shit.exe	cc968494674186d7
+3	306	6730963461625581	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+1	223	6730963598742289	CMakeFiles/igor_shit.dir/main.cpp.obj	7e689f3ca461df75
+224	337	6730963599839575	igor_shit.exe	cc968494674186d7
+11	284	6730974227286083	CMakeFiles/igor_shit.dir/main.cpp.obj	7e689f3ca461df75
+2	265	6730974363522584	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+265	405	6730974364867087	igor_shit.exe	cc968494674186d7
+1	256	6730974973456151	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+256	396	6730974974807949	igor_shit.exe	cc968494674186d7
+1	280	6730976232834280	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+280	410	6730976234079295	igor_shit.exe	cc968494674186d7
+2	279	6730976607870998	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+280	404	6730976609076615	igor_shit.exe	cc968494674186d7
