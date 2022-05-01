@@ -1,12 +1,14 @@
 //
-// Created by studi on 01.05.2022.
+//  GameInfo.h
+//  LearnChess
+//
+//  Created by Enric Vergara on 24/2/22.
 //
 
-#ifndef IGOR_SHIT_GAMEINFO_H
-#define IGOR_SHIT_GAMEINFO_H
-
+#ifndef GameInfo_h
+#define GameInfo_h
 #include <vector>
-#include "ChessPosition.h"
+#include "ChessPosition.hpp"
 
 struct Direction {
     int dirX;
@@ -19,4 +21,4 @@ const int NUM_ROWS = 8;
 
 typedef vector<ChessPosition> VecOfPositions;
 
-#endif //IGOR_SHIT_GAMEINFO_H
+#endif /* GameInfo_h */

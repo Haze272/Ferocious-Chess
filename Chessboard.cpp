@@ -1,45 +1,31 @@
 //
-// Created by studi on 01.05.2022.
+//  Chessboard.cpp
+//  LearnChess
+//
+//  Created by Enric Vergara on 21/2/22.
 //
 
+#include "Chessboard.hpp"
 #include <iostream>
 #include <fstream>
+#include <string>
 #include <cstring>
-#include "Chessboard.h"
 
 using namespace std;
 
-void Chessboard::addFigure(Piece piece, int x, int y) {
-    m_board[x][y] = piece;
+Chessboard::Chessboard()
+{
+    
+    
 }
 
-Chessboard::Chessboard() {}
-
-VecOfPositions* Chessboard::GetValidMoves(ChessPosition &pos) {
-    VecOfPositions *validMoves = new VecOfPositions;
-    int x = pos.getPosX();
-    int y = pos.getPosY();
-
-
-    if (GetPieceTypeAtPos(pos) == 0) {
-        // WORKING
-        // TODO
-
-        ChessPosition *p1 = new ChessPosition("a0");
-        validMoves->push_back(*p1);
-
-    }
-
-    return validMoves;
-}
-
-ChessPieceColor Chessboard::GetPieceColorAtPos(ChessPosition& pos)
+ChessPieceColor Chessboard::GetPieceColorAtPos(const ChessPosition& pos)
 {
     int i,j;
 
     i= pos.getPosX();
     j= pos.getPosY();
-
+    
     switch(m_board[i][j].getColor())
     {
         case 0: return CPC_White;
@@ -49,18 +35,18 @@ ChessPieceColor Chessboard::GetPieceColorAtPos(ChessPosition& pos)
         default: return CPC_NONE;
             break;
     }
-
-
+        
+    
 }
 
-ChessPieceType Chessboard::GetPieceTypeAtPos(ChessPosition& pos)
+ChessPieceType Chessboard::GetPieceTypeAtPos(const ChessPosition& pos)
 {
     int i,j;
 
     i= pos.getPosX();
     j= pos.getPosY();
-
-    switch(getBoard(i,j).getType())
+    
+    switch(m_board[i][j].getType())
     {
         case 0: return CPT_King;
             break;
@@ -79,28 +65,28 @@ ChessPieceType Chessboard::GetPieceTypeAtPos(ChessPosition& pos)
     }
 }
 
-void Chessboard::LoadBoardFromFile(string& path)
+void Chessboard::LoadBoardFromFile(const string& path)
 {
     ifstream fitxer;
     string linia;
     fitxer.open(path);
-
-
+    
+    
     if(fitxer.is_open())
     {
-
+        
         while(!fitxer.eof())
         {
             getline(cin,linia);
-
+           
             int n = linia.length();
             char coordenades[n];
             int fila, columna;
-
-
-            strcpy(coordenades, linia.c_str());
-
-
+            
+             
+                strcpy(coordenades, linia.c_str());
+             
+            
             switch(coordenades[n-1])
             {
                 case '1': fila = 7;
@@ -120,8 +106,8 @@ void Chessboard::LoadBoardFromFile(string& path)
                 case '8': fila = 0;
                     break;
             }
-
-
+            
+            
             switch(coordenades[n-2])
             {
                 case 'a': columna = 0;
@@ -141,16 +127,16 @@ void Chessboard::LoadBoardFromFile(string& path)
                 case 'h': columna = 7;
                     break;
             }
-
+            
             switch (coordenades[0])
             {
                 case 0: m_board[columna][fila].setColor(CPC_White);
                     break;
                 case 1: m_board[columna][fila].setColor(CPC_Black);
                     break;
-
+            
             }
-
+            
             switch(coordenades[n-3])
             {
                 case 'R': m_board[columna][fila].setType(CPT_King);
@@ -165,10 +151,457 @@ void Chessboard::LoadBoardFromFile(string& path)
                     break;
                 case 'P': m_board[columna][fila].setType(CPT_Pawn);
                     break;
-
+                    
             }
         }
         fitxer.close();
-
+        
     }
 }
+
+VecOfPositions Chessboard::GetValidMoves(const ChessPosition& pos)
+{
+    //VecOfPositions validMoves = new VecOfPositions;
+        
+       int x = pos.getPosX();
+       int y = pos.getPosY();
+        int i=1, j=1;
+        bool final = false;
+        
+    
+    switch (GetPieceTypeAtPos(pos)) {
+        case 0:
+            
+            if(getBoard(x+1, y).getColor() != getBoard(x,y).getColor()) {getBoard(x+1, y).ConvertToString();}
+            if(getBoard(x+1, y+1).getColor() != getBoard(x,y).getColor()) {getBoard(x+1, y+1).ConvertToString();}
+            if(getBoard(x+1, y-1).getColor() != getBoard(x,y).getColor()) {getBoard(x+1, y-1).ConvertToString();}
+            if(getBoard(x, y+1).getColor() != getBoard(x,y).getColor()) {getBoard(x, y+1).ConvertToString();}
+            if(getBoard(x, y-1).getColor() != getBoard(x,y).getColor()) {getBoard(x, y-1).ConvertToString();}
+            if(getBoard(x-1, y).getColor() != getBoard(x,y).getColor()) {getBoard(x-1, y).ConvertToString();}
+            if(getBoard(x-1, y+1).getColor() != getBoard(x,y).getColor()) {getBoard(x-1, y+1).ConvertToString();}
+            if(getBoard(x-1, y-1).getColor() != getBoard(x,y).getColor()) {getBoard(x-1, y-1).ConvertToString();}
+            
+            break;
+            
+        case 1:
+            
+            while(getBoard(x+i, y).getColor() !=  getBoard(x,y).getColor() && !final)
+            {
+                if(getBoard(x+i, y).getType() != 0 && getBoard(x+i, y).getType() != 6 )
+                {getBoard(x+i, y).ConvertToString();
+                    final=true;}
+                
+                if(getBoard(x+i, y).getType() == 6)
+                {getBoard(x+i, y).ConvertToString();}
+                
+                if(getBoard(x+i, y).getType() == 0 )
+                {final = true;}
+                
+                if(x+i >8 && x-i <0 && y+j>8 && y-j<0)
+                {final = true;}
+                
+                i++;
+            }
+            i=1;
+            j=1;
+            final = false;
+            
+            while(getBoard(x-i, y).getColor() !=  getBoard(x,y).getColor() && !final)
+            {
+                if(getBoard(x-i, y).getType() != 0 )
+                {getBoard(x-i, y).ConvertToString();}
+                else
+                {final=true;}
+                
+                if(getBoard(x-i, y).getType() == 6)
+                {getBoard(x-i, y).ConvertToString();}
+                
+                if(getBoard(x-i, y).getType() == 0 )
+                { final = true; }
+                
+                if(x+i >8 && x-i <0 && y+j>8 && y-j<0)
+                {final = true;}
+                
+                i++;
+            }
+            i=1;
+            j=1;
+            final = false;
+            
+            while(getBoard(x, y+j).getColor() !=  getBoard(x,y).getColor() && !final)
+            {
+                if(getBoard(x, y+j).getType() != 0 )
+                {getBoard(x, y+j).ConvertToString();}
+                else
+                {final=true;}
+                
+                if(getBoard(x, y+j).getType() == 6)
+                {getBoard(x, y+j).ConvertToString();}
+                
+                if(getBoard(x, y+j).getType() == 0 )
+                {final = true;}
+                
+                if(x+i >8 && x-i <0 && y+j>8 && y-j<0)
+                {final = true;}
+                
+                j++;
+            }
+            
+            i=1;
+            j=1;
+            final = false;
+            
+            while(getBoard(x, y-j).getColor() !=  getBoard(x,y).getColor() && !final)
+            {
+                if(getBoard(x, y-j).getType() != 0 )
+                {getBoard(x, y-j).ConvertToString();}
+                else
+                {final=true;}
+                
+                if(getBoard(x, y-j).getType() == 6)
+                {getBoard(x, y-j).ConvertToString();}
+                
+                if(getBoard(x, y-j).getType() == 0 )
+                {final = true;}
+                
+                if(x+i >8 && x-i <0 && y+j>8 && y-j<0)
+                {final = true;}
+                
+                j++;
+            }
+            i=1;
+            j=1;
+            final = false;
+            
+            while(getBoard(x+i, y+j).getColor() !=  getBoard(x+i,y+j).getColor() && !final)
+            {
+                if(getBoard(x+i, y+j).getType() != 0 )
+                {getBoard(x+i, y+j).ConvertToString();}
+                else
+                {final=true;}
+                
+                if(getBoard(x+i, y+j).getType() == 6)
+                {getBoard(x+i, y-j).ConvertToString();}
+                
+                if(getBoard(x+i, y+j).getType() == 0 )
+                {final = true;}
+                
+                if(x+i >8 && x-i <0 && y+j>8 && y-j<0)
+                {final = true;}
+                
+                j++;
+            }
+            i=1;
+            j=1;
+            final = false;
+            
+            while(getBoard(x-i, y+j).getColor() !=  getBoard(x+i,y+j).getColor() && !final)
+            {
+                if(getBoard(x-i, y+j).getType() != 0 )
+                {getBoard(x-i, y+j).ConvertToString();}
+                else
+                {final=true;}
+                
+                if(getBoard(x-i, y+j).getType() == 6)
+                {getBoard(x-i, y+j).ConvertToString();}
+                
+                if(getBoard(x-i, y+j).getType() == 0 )
+                {final = true;}
+                
+                if(x+i >8 && x-i <0 && y+j>8 && y-j<0)
+                {final = true;}
+                
+                j++;
+            }
+            i=1;
+            j=1;
+            final = false;
+            
+            while(getBoard(x+i, y-j).getColor() !=  getBoard(x+i,y+j).getColor() && !final)
+            {
+                if(getBoard(x+i, y-j).getType() != 0 )
+                {getBoard(x+i, y-j).ConvertToString();}
+                else
+                {final=true;}
+                
+                if(getBoard(x+i, y-j).getType() == 6)
+                {getBoard(x+i, y-j).ConvertToString();}
+                
+                if(getBoard(x+i, y-j).getType() == 0 )
+                {final = true;}
+                
+                if(x+i >8 && x-i <0 && y+j>8 && y-j<0)
+                {final = true;}
+                
+                j++;
+            }
+            i=1;
+            j=1;
+            final = false;
+            
+            while(getBoard(x-i, y-j).getColor() !=  getBoard(x+i,y+j).getColor() && !final)
+            {
+                if(getBoard(x-i, y-j).getType() != 0 )
+                {getBoard(x-i, y-j).ConvertToString();}
+                else
+                {final=true;}
+                
+                if(getBoard(x-i, y-j).getType() == 6)
+                {getBoard(x-i, y-j).ConvertToString();}
+                
+                if(getBoard(x-i, y-j).getType() == 0 )
+                {final = true;}
+                
+                if(x+i >8 && x-i <0 && y+j>8 && y-j<0)
+                {final = true;}
+                
+                j++;
+            }
+            i=1;
+            j=1;
+            final = false;
+                
+            break;
+        
+        case 2:
+            while(getBoard(x+i, y).getColor() !=  getBoard(x,y).getColor() && !final)
+            {
+                if(getBoard(x+i, y).getType() != 0 && getBoard(x+i, y).getType() != 6 )
+                {getBoard(x+i, y).ConvertToString();
+                    final=true;}
+                
+                if(getBoard(x+i, y).getType() == 6)
+                {getBoard(x+i, y).ConvertToString();}
+                
+                if(getBoard(x+i, y).getType() == 0 )
+                {final = true;}
+                
+                if(x+i >8 && x-i <0 && y+j>8 && y-j<0)
+                {final = true;}
+                
+                i++;
+            }
+            i=1;
+            j=1;
+            final = false;
+            
+            while(getBoard(x-i, y).getColor() !=  getBoard(x,y).getColor() && !final)
+            {
+                if(getBoard(x-i, y).getType() != 0 )
+                {getBoard(x-i, y).ConvertToString();}
+                else
+                {final=true;}
+                
+                if(getBoard(x-i, y).getType() == 6)
+                {getBoard(x-i, y).ConvertToString();}
+                
+                if(getBoard(x-i, y).getType() == 0 )
+                { final = true; }
+                
+                if(x+i >8 && x-i <0 && y+j>8 && y-j<0)
+                {final = true;}
+                
+                i++;
+            }
+            i=1;
+            j=1;
+            final = false;
+            
+            while(getBoard(x, y+j).getColor() !=  getBoard(x,y).getColor() && !final)
+            {
+                if(getBoard(x, y+j).getType() != 0 )
+                {getBoard(x, y+j).ConvertToString();}
+                else
+                {final=true;}
+                
+                if(getBoard(x, y+j).getType() == 6)
+                {getBoard(x, y+j).ConvertToString();}
+                
+                if(getBoard(x, y+j).getType() == 0 )
+                {final = true;}
+                
+                if(x+i >8 && x-i <0 && y+j>8 && y-j<0)
+                {final = true;}
+                
+                j++;
+            }
+            
+            i=1;
+            j=1;
+            final = false;
+            
+            while(getBoard(x, y-j).getColor() !=  getBoard(x,y).getColor() && !final)
+            {
+                if(getBoard(x, y-j).getType() != 0 )
+                {getBoard(x, y-j).ConvertToString();}
+                else
+                {final=true;}
+                
+                if(getBoard(x, y-j).getType() == 6)
+                {getBoard(x, y-j).ConvertToString();}
+                
+                if(getBoard(x, y-j).getType() == 0 )
+                {final = true;}
+                
+                if(x+i >8 && x-i <0 && y+j>8 && y-j<0)
+                {final = true;}
+                
+                j++;
+            }
+            i=1;
+            j=1;
+            final = false;
+            
+        case 3:
+            while(getBoard(x+i, y+j).getColor() !=  getBoard(x+i,y+j).getColor() && !final)
+            {
+                if(getBoard(x+i, y+j).getType() != 0 )
+                {getBoard(x+i, y+j).ConvertToString();}
+                else
+                {final=true;}
+                
+                if(getBoard(x+i, y+j).getType() == 6)
+                {getBoard(x+i, y-j).ConvertToString();}
+                
+                if(getBoard(x+i, y+j).getType() == 0 )
+                {final = true;}
+                
+                if(x+i >8 && x-i <0 && y+j>8 && y-j<0)
+                {final = true;}
+                
+                j++;
+            }
+            i=1;
+            j=1;
+            final = false;
+            
+            while(getBoard(x-i, y+j).getColor() !=  getBoard(x+i,y+j).getColor() && !final)
+            {
+                if(getBoard(x-i, y+j).getType() != 0 )
+                {getBoard(x-i, y+j).ConvertToString();}
+                else
+                {final=true;}
+                
+                if(getBoard(x-i, y+j).getType() == 6)
+                {getBoard(x-i, y+j).ConvertToString();}
+                
+                if(getBoard(x-i, y+j).getType() == 0 )
+                {final = true;}
+                
+                if(x+i >8 && x-i <0 && y+j>8 && y-j<0)
+                {final = true;}
+                
+                j++;
+            }
+            i=1;
+            j=1;
+            final = false;
+            
+            while(getBoard(x+i, y-j).getColor() !=  getBoard(x+i,y+j).getColor() && !final)
+            {
+                if(getBoard(x+i, y-j).getType() != 0 )
+                {getBoard(x+i, y-j).ConvertToString();}
+                else
+                {final=true;}
+                
+                if(getBoard(x+i, y-j).getType() == 6)
+                {getBoard(x+i, y-j).ConvertToString();}
+                
+                if(getBoard(x+i, y-j).getType() == 0 )
+                {final = true;}
+                
+                if(x+i >8 && x-i <0 && y+j>8 && y-j<0)
+                {final = true;}
+                
+                j++;
+            }
+            i=1;
+            j=1;
+            final = false;
+            
+            while(getBoard(x-i, y-j).getColor() !=  getBoard(x+i,y+j).getColor() && !final)
+            {
+                if(getBoard(x-i, y-j).getType() != 0 )
+                {getBoard(x-i, y-j).ConvertToString();}
+                else
+                {final=true;}
+                
+                if(getBoard(x-i, y-j).getType() == 6)
+                {getBoard(x-i, y-j).ConvertToString();}
+                
+                if(getBoard(x-i, y-j).getType() == 0 )
+                {final = true;}
+                
+                if(x+i >8 && x-i <0 && y+j>8 && y-j<0)
+                {final = true;}
+                
+                j++;
+            }
+            i=1;
+            j=1;
+            final = false;
+                
+            break;
+            
+        case 4:
+            if(getBoard(x+1, y+2).getColor() != getBoard(x,y).getColor()) {getBoard(x+1, y).ConvertToString();}
+            if(getBoard(x+1, y-2).getColor() != getBoard(x,y).getColor()) {getBoard(x+1, y+1).ConvertToString();}
+            if(getBoard(x+2, y-1).getColor() != getBoard(x,y).getColor()) {getBoard(x+1, y-1).ConvertToString();}
+            if(getBoard(x+2, y+1).getColor() != getBoard(x,y).getColor()) {getBoard(x, y+1).ConvertToString();}
+            if(getBoard(x-1, y-2).getColor() != getBoard(x,y).getColor()) {getBoard(x, y-1).ConvertToString();}
+            if(getBoard(x-1, y+2).getColor() != getBoard(x,y).getColor()) {getBoard(x-1, y).ConvertToString();}
+            if(getBoard(x-2, y+1).getColor() != getBoard(x,y).getColor()) {getBoard(x-1, y+1).ConvertToString();}
+            if(getBoard(x-2, y-1).getColor() != getBoard(x,y).getColor()) {getBoard(x-1, y-1).ConvertToString();}
+            
+            break;
+            
+        case 5:
+            if (getBoard(x, 1).getColor()==0)
+            {
+                getBoard(x, 3).ConvertToString();
+                
+            }
+                if(getBoard(x, y).getColor()==0)
+                {
+                    if (getBoard(x+1, y+1).getColor()==1){getBoard(x+1, y+1).ConvertToString();}
+                    if (getBoard(x+1, y-1).getColor()==1){getBoard(x+1, y-1).ConvertToString();}
+                    if (getBoard(x, y-1).getColor() ==3){getBoard(x, y+1).ConvertToString();}
+                }
+            
+            if (getBoard(x, 6).getColor()==1)
+            {
+                getBoard(x, 4).ConvertToString();
+                
+            }
+            
+                if(getBoard(x, y).getColor()==1)
+                {
+            
+                    if (getBoard(x+1, y-1).getColor()==0){getBoard(x+1, y-1).ConvertToString();}
+                    if (getBoard(x-1, y+1).getColor()==0){getBoard(x-1, y+1).ConvertToString();}
+                    if (getBoard(x, y-1).getColor()==3){getBoard(x, y-1).ConvertToString();}
+                }
+            
+            
+        default:
+            cout << "Error" << endl;
+            break;
+    }
+    
+    
+    
+    
+    return validMoves;
+}
+    
+          
+    // Per a fer l'enroc, el primer moviment dels peons i en peassant necessitem movecounter. Perque aquests moviments es poden fer com a primer moviment de la peca.
+  
+    // Per a la transformacio del peo, es forcara la transformacio de peo a la reina, ja que es practica habitual. Tot i que en alguns casos particulars es necessari la conversio al cavall (underpromoting).
+    
+    // Si un costat unicament te el rei al taulell, es el seu torn, no esta en jaque i no pot moure's; doncs aixo es un empat. Un costat guany nomes si rei esta en jaque i no pot moures's, ni parar el jaque amb una altra figura.
+    
+    // Si hi ha una figura que protegeix el rei del jaque, doncs aquesta no pot moure's.
+    
+//}
+
