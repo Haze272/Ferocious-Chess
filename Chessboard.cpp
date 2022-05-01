@@ -20,14 +20,48 @@ VecOfPositions* Chessboard::GetValidMoves(ChessPosition &pos) {
     int x = pos.getPosX();
     int y = pos.getPosY();
 
-
-    if (GetPieceTypeAtPos(pos) == 0) {
-        // WORKING
-        // TODO
-
+    switch (GetPieceTypeAtPos(pos)) {
+        /* Рабочий способ добавления в массив
         ChessPosition *p1 = new ChessPosition("a0");
         validMoves->push_back(*p1);
+        */
 
+        case 0: {  // King
+            // TODO сделать проверку на существование фигур на валидных клетках
+            for(int letter = (x - 1); letter <= (x + 1); letter++) {
+                for(int digit = (y - 1); digit <= (y + 1); digit++) {
+                    if (letter >= 0 && letter <= 7 && digit >= 0 && digit <= 7) {  // Проверка на выход из доски
+                        if (!(letter == x && digit == y)) {  // Стоять на месте фигура не может
+                            ChessPosition *p1 = new ChessPosition();
+                            p1->setPosX(letter);
+                            p1->setPosY(digit);
+                            validMoves->push_back(*p1);
+                        }
+                    }
+                }
+            }
+
+        } break;
+        case 1: {  // Queen
+            // TODO
+
+        } break;
+        case 2: {  // Rook
+            // TODO
+
+        } break;
+        case 3: {  // Bishop
+            // TODO
+
+        } break;
+        case 4: {  // Knight
+            // TODO
+
+        } break;
+        case 5: {  // Pawn
+            // TODO: black/white pawn
+
+        } break;
     }
 
     return validMoves;

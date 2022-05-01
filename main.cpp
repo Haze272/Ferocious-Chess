@@ -10,12 +10,12 @@ int main() {
     black_king.setType(CPT_King);
 
     Chessboard juega1;
-    juega1.addFigure(black_king, 4, 0);
+    juega1.addFigure(black_king, 4, 2);
 
-    ChessPosition cp("e8");
+    ChessPosition cp("e6");
     VecOfPositions mn = *(juega1.GetValidMoves(cp));
     for (auto& v : mn){
-        cout << v.getPosX() << " " << v.getPosY();
+        cout << v.getPosX() << " " << v.getPosY() << endl;
     }
 
     return 0;
