@@ -9,6 +9,34 @@
 
 using namespace std;
 
+void Chessboard::addFigure(Piece piece, int x, int y) {
+    m_board[x][y] = piece;
+}
+
+Chessboard::Chessboard() {}
+
+VecOfPositions Chessboard::GetValidMoves(ChessPosition &pos) {
+    VecOfPositions *validMoves = new VecOfPositions;
+    int x = pos.getPosX();
+    int y = pos.getPosY();
+
+
+    if (GetPieceTypeAtPos(pos) == 0) {
+        // WORKING
+        for(int i = x-1; i < x+2; i++) {
+            for(int j = y-1; j < y+2; j++) {
+                // TODO
+            }
+        }
+
+        ChessPosition *p1 = new ChessPosition("");
+        validMoves->push_back(p1);
+
+    }
+
+    return validMoves;
+}
+
 ChessPieceColor Chessboard::GetPieceColorAtPos(ChessPosition& pos)
 {
     int i,j;

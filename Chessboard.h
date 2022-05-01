@@ -13,8 +13,8 @@
 class Chessboard {
 
 public:
-    Chessboard();
 
+    Chessboard();
     Piece getBoard(int i, int j){return m_board[i][j];}
 
     void            LoadBoardFromFile(string& path);
@@ -23,6 +23,8 @@ public:
     string          ToString();
     ChessPieceColor GetPieceColorAtPos(ChessPosition& pos);
     ChessPieceType GetPieceTypeAtPos(ChessPosition& pos);
+    // SB
+    void addFigure(Piece piece, int x, int y);
 
 
 private:
