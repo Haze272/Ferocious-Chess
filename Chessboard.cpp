@@ -26,7 +26,8 @@ VecOfPositions* Chessboard::GetValidMoves(ChessPosition &pos) {
         validMoves->push_back(*p1);
         */
 
-        case 0: {  // King
+        // King (Almost done)
+        case 0: {
             // TODO сделать проверку на существование фигур на валидных клетках
             for(int letter = (x - 1); letter <= (x + 1); letter++) {
                 for(int digit = (y - 1); digit <= (y + 1); digit++) {
@@ -40,25 +41,44 @@ VecOfPositions* Chessboard::GetValidMoves(ChessPosition &pos) {
                     }
                 }
             }
-
         } break;
-        case 1: {  // Queen
+        // Queen
+        case 1: {
             // TODO
 
         } break;
-        case 2: {  // Rook
+        // Rook (Almost done)
+        case 2: {
+            // TODO сделать проверку на существование фигур на валидных клетках
+            for(int letter = 0; letter < 8; letter++) {
+                if (!(letter == x)) {  // Стоять на месте фигура не может
+                    ChessPosition *p1 = new ChessPosition();
+                    p1->setPosX(letter);
+                    p1->setPosY(y);
+                    validMoves->push_back(*p1);
+                }
+            }
+            for(int digit = 0; digit < 8; digit++) {
+                if (!(digit == y)) {  // Стоять на месте фигура не может
+                    ChessPosition *p1 = new ChessPosition();
+                    p1->setPosX(x);
+                    p1->setPosY(digit);
+                    validMoves->push_back(*p1);
+                }
+            }
+        } break;
+        // Bishop
+        case 3: {
             // TODO
 
         } break;
-        case 3: {  // Bishop
+        // Knight
+        case 4: {
             // TODO
 
         } break;
-        case 4: {  // Knight
-            // TODO
-
-        } break;
-        case 5: {  // Pawn
+        // Pawn
+        case 5: {
             // TODO: black/white pawn
 
         } break;
