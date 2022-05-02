@@ -664,11 +664,12 @@ VecOfPositions* Chessboard::GetValidMoves(ChessPosition& pos)
 
 string Chessboard::ToString() {
     for(int i = 0; i < 8; i++) {
+        cout << 8 - i << " ";
         for(int j = 0; j < 8; j++) {
             cout << m_board[i][j].ConvertToString() << " ";
         }
         if (i == 7) {
-            cout << endl;
+            cout << endl << "  ";
             for(int m = 1; m <= 8; m++) {
                 cout << numToLetter(m) << "  ";
             }
