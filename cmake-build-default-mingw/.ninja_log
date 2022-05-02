@@ -5,6 +5,7 @@
 35	444	6731840158693737	CMakeFiles/igor_shit.dir/ChessPosition.cpp.obj	b45aaafa7b637d2c
 2	419	6731907034718558	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
 1	216	6730953737163620	build.ninja	8e082f78ce0940e9
+<<<<<<< Updated upstream
 22	359	6731907575918806	CMakeFiles/igor_shit.dir/main.cpp.obj	7e689f3ca461df75
 3	629	6731907578618663	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
 629	785	6731907580195871	igor_shit.exe	cc968494674186d7
@@ -48,3 +49,39 @@
 223	334	6731913351425079	igor_shit.exe	cc968494674186d7
 1	225	6731923353300948	CMakeFiles/igor_shit.dir/ChessPosition.cpp.obj	b45aaafa7b637d2c
 226	358	6731923354603830	igor_shit.exe	cc968494674186d7
+=======
+16	267	6730956151223623	CMakeFiles/igor_shit.dir/main.cpp.obj	7e689f3ca461df75
+3	302	6730956151567395	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+302	422	6730956152734999	igor_shit.exe	cc968494674186d7
+3	306	6730963461625581	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+1	223	6730963598742289	CMakeFiles/igor_shit.dir/main.cpp.obj	7e689f3ca461df75
+224	337	6730963599839575	igor_shit.exe	cc968494674186d7
+11	284	6730974227286083	CMakeFiles/igor_shit.dir/main.cpp.obj	7e689f3ca461df75
+2	265	6730974363522584	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+265	405	6730974364867087	igor_shit.exe	cc968494674186d7
+1	256	6730974973456151	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+256	396	6730974974807949	igor_shit.exe	cc968494674186d7
+1	280	6730976232834280	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+280	410	6730976234079295	igor_shit.exe	cc968494674186d7
+2	279	6730976607870998	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+280	404	6730976609076615	igor_shit.exe	cc968494674186d7
+14	358	6731021720443342	CMakeFiles/igor_shit.dir/main.cpp.obj	7e689f3ca461df75
+3	400	6731021720952415	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+400	552	6731021722429093	igor_shit.exe	cc968494674186d7
+3	382	6731021911078427	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+382	535	6731021912563241	igor_shit.exe	cc968494674186d7
+2	325	6731022045707963	CMakeFiles/igor_shit.dir/main.cpp.obj	7e689f3ca461df75
+325	515	6731022047566469	igor_shit.exe	cc968494674186d7
+2	298	6731022232750194	CMakeFiles/igor_shit.dir/main.cpp.obj	7e689f3ca461df75
+298	473	6731022234419243	igor_shit.exe	cc968494674186d7
+3	279	6731022305491055	CMakeFiles/igor_shit.dir/main.cpp.obj	7e689f3ca461df75
+279	449	6731022307135206	igor_shit.exe	cc968494674186d7
+3	339	6731022513760914	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+339	511	6731022515452009	igor_shit.exe	cc968494674186d7
+2	334	6731022572860098	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+335	518	6731022574691095	igor_shit.exe	cc968494674186d7
+2	414	6731026453696165	CMakeFiles/igor_shit.dir/Chessboard.cpp.obj	e88fc558eb4b34a7
+414	561	6731026455147051	igor_shit.exe	cc968494674186d7
+2	286	6731026584949734	CMakeFiles/igor_shit.dir/main.cpp.obj	7e689f3ca461df75
+287	449	6731026586524554	igor_shit.exe	cc968494674186d7
+>>>>>>> Stashed changes
