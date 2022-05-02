@@ -25,18 +25,22 @@ typedef enum {
     CPC_NONE
 } ChessPieceColor;
 
+
+
 class Piece {
-private:
-    ChessPieceType m_type;
-    ChessPieceColor m_color;
+
 public:
     Piece();
-    void setType(ChessPieceType type) { this->m_type = type; }
-    void setColor(ChessPieceColor color) { this->m_color = color; }
-    int getType() { return m_type; }
-    int getColor() { return m_color; }
-    string ToString();
-    string igorToString();
+    void setType(ChessPieceType type){ m_type = type;}
+    void setColor(ChessPieceColor color){ m_color = color;}
+    int getType(){ return m_type;}
+    int getColor(){ return m_color;}
+
+    string ConvertToString();
+
+private:
+    ChessPieceType  m_type;
+    ChessPieceColor m_color;
 };
 
 
