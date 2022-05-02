@@ -4,19 +4,30 @@
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
+    Chessboard juega1;
+
+    cout << "-------------King1-------------" << endl;
 
     Piece black_king;
     black_king.setColor(CPC_Black);
     black_king.setType(CPT_King);
+    juega1.addFigure(black_king, 0, 0);
 
-    Chessboard juega1;
-    juega1.addFigure(black_king, 4, 0);
+    ChessPosition cp("a8");
 
-    ChessPosition cp("e8");
     VecOfPositions mn = *(juega1.GetValidMoves(cp));
     for (auto& v : mn){
-        cout << v.getPosX() << " " << v.getPosY();
+        cout << v.getPosX() << " " << v.getPosY() << endl;
     }
+
+    cout << "-------------ToString-------------" << endl;
+
+    cout << juega1.ToString();
+
+    cout << "-------------Moving piece-------------" << endl;
+    ChessPosition cp1("a7");
+    juega1.MovePiece(cp, cp1);
+    cout << juega1.ToString();
 
     return 0;
 }
