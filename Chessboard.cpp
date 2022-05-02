@@ -9,9 +9,16 @@
 
 using namespace std;
 
+// ------------------- ESTEBAN
 void Chessboard::addFigure(Piece piece, int x, int y) {
     m_board[x][y] = piece;
 }
+
+// Метод для переработки цифер в буквы (блять ну лень писать ифы нахуй)
+char Chessboard::numToLetter(int govno) {
+    return 'A' + govno - 1;
+}
+// ------------------- ESTEBAN END
 
 Chessboard::Chessboard() {}
 
@@ -653,6 +660,21 @@ VecOfPositions* Chessboard::GetValidMoves(ChessPosition& pos)
 
 
     return validMoves;
+}
+
+string Chessboard::ToString() {
+    for(int i = 0; i < 8; i++) {
+        for(int j = 0; j < 8; j++) {
+            cout << m_board[i][j].ConvertToString() << " ";
+        }
+        if (i == 7) {
+            cout << endl;
+            for(int m = 1; m <= 8; m++) {
+                cout << numToLetter(m) << "  ";
+            }
+        }
+        cout << endl;
+    }
 }
 
 

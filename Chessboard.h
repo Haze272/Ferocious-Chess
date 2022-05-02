@@ -33,6 +33,7 @@ public:
 
     // ESTEBAN
     void addFigure(Piece piece, int x, int y);
+    char numToLetter(int govno);
 
 private:
     Piece m_board[NUM_COLS][NUM_ROWS];

@@ -20,5 +20,9 @@ int main() {
         cout << v.getPosX() << " " << v.getPosY() << endl;
     }
 
+    cout << "-------------ToString-------------" << endl;
+
+    juega1.ToString();
+
     return 0;
 }
