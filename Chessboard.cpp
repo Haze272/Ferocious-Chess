@@ -663,19 +663,35 @@ VecOfPositions* Chessboard::GetValidMoves(ChessPosition& pos)
 }
 
 string Chessboard::ToString() {
+    string res;
     for(int i = 0; i < 8; i++) {
-        cout << 8 - i << " ";
+        res.append(to_string(8 - i) + " "); // cout << 8 - i << " ";
         for(int j = 0; j < 8; j++) {
-            cout << m_board[i][j].ConvertToString() << " ";
+            res.append(m_board[i][j].ConvertToString() + " "); // cout << m_board[i][j].ConvertToString() << " ";
         }
         if (i == 7) {
-            cout << endl << "  ";
+            res.append("\n  "); // cout << endl << "  ";
             for(int m = 1; m <= 8; m++) {
-                cout << numToLetter(m) << "  ";
+                string letter = "";
+                letter += numToLetter(m);
+                res.append(letter + "  "); // cout << numToLetter(m) << "  ";
             }
         }
-        cout << endl;
+        res.append("\n"); // cout << endl;
     }
+    return res;
+}
+
+bool Chessboard::MovePiece(ChessPosition& posFrom, ChessPosition& posTo) {
+    int x1 = posFrom.getPosY();
+    int y1 = posFrom.getPosX();
+
+    int x2 = posTo.getPosY();
+    int y2 = posTo.getPosX();
+
+    Piece buffer = m_board[x1][y1];
+    m_board[x1][y1] = Piece();
+    m_board[x2][y2] = buffer;
 }
 
 
