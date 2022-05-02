@@ -25,7 +25,7 @@ int main() {
     cout << juega1.ToString();
 
     cout << "-------------Moving piece-------------" << endl;
-    ChessPosition cp1("a7");
+    ChessPosition cp1("a4");
     juega1.MovePiece(cp, cp1);
     cout << juega1.ToString();
 
