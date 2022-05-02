@@ -31,7 +31,7 @@ ChessPosition::ChessPosition(string posicio)
             break;
         case '6': setPosY(2);
             break;
-        case '7': setPosY(2);
+        case '7': setPosY(1);
             break;
         case '8': setPosY(0);
             break;
