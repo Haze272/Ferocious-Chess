@@ -14,36 +14,14 @@ void Chessboard::addFigure(Piece piece, int x, int y) {
     m_board[x][y] = piece;
 }
 
-<<<<<<< Updated upstream
+
 // Метод для переработки цифер в буквы (блять ну лень писать ифы нахуй)
 char Chessboard::numToLetter(int govno) {
     return 'A' + govno - 1;
-=======
-Chessboard::Chessboard() {}
-
-VecOfPositions* Chessboard::GetValidMoves(ChessPosition &pos) {
-    VecOfPositions *validMoves = new VecOfPositions;
-    int x = pos.getPosX();
-    int y = pos.getPosY();
-
-
-    if (GetPieceTypeAtPos(pos) == 0) {
-        // WORKING
-        // TODO
-
-        ChessPosition *p1 = new ChessPosition("a0");
-        validMoves->push_back(*p1);
-        ChessPosition *p2 = new ChessPosition("b3");
-        validMoves->push_back(*p2);
-
-    }
-
-    return validMoves;
->>>>>>> Stashed changes
 }
+Chessboard::Chessboard() {}
 // ------------------- ESTEBAN END
 
-Chessboard::Chessboard() {}
 
 ChessPieceColor Chessboard::GetPieceColorAtPos(ChessPosition& pos)
 {

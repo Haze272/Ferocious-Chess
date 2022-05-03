@@ -16,11 +16,7 @@ int main() {
     ChessPosition cp("a8");
 
     VecOfPositions mn = *(juega1.GetValidMoves(cp));
-<<<<<<< Updated upstream
-    for (auto& v : mn){
-=======
     for (auto& v : mn) {
->>>>>>> Stashed changes
         cout << v.getPosX() << " " << v.getPosY() << endl;
     }
 
