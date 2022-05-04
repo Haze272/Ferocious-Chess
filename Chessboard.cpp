@@ -682,6 +682,8 @@ string Chessboard::ToString() {
 }
 
 bool Chessboard::MovePiece(ChessPosition& posFrom, ChessPosition& posTo) {
+    VecOfPositions *validPosisitions = GetValidMoves(posFrom);
+
     int x1 = posFrom.getPosY();
     int y1 = posFrom.getPosX();
 
@@ -691,6 +693,18 @@ bool Chessboard::MovePiece(ChessPosition& posFrom, ChessPosition& posTo) {
     Piece buffer = m_board[x1][y1];
     m_board[x1][y1] = Piece();
     m_board[x2][y2] = buffer;
+
+    VecOfPositions *validPosisitions1 = GetValidMoves(posTo);
+
+    for (auto pos: *validPosisitions) {
+        cout << pos.getPosX() << " " << pos.getPosY() << endl;
+    }
+
+    for (auto pos1: *validPosisitions1) {
+        cout << pos1.getPosX() << " " << pos1.getPosY() << endl;
+    }
+
+    return 1;
 }
 
 

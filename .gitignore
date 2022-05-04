@@ -82,3 +82,6 @@ cmake-build-debug/CMakeFiles/igor_shit.dir/depend.make
 cmake-build-debug/CMakeFiles/igor_shit.dir/DependInfo.cmake
 cmake-build-debug/CMakeFiles/igor_shit.dir/flags.make
 cmake-build-debug/CMakeFiles/igor_shit.dir/link.txt
+*.d
+*.internal
+*.a
