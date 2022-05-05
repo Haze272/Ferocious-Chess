@@ -85,3 +85,10 @@ cmake-build-debug/CMakeFiles/igor_shit.dir/link.txt
 *.d
 *.internal
 *.a
+cmake-build-default-mingw/.ninja_deps
+cmake-build-default-mingw/.ninja_deps
+cmake-build-default-mingw/.ninja_log
+*.obj
+*.obj
+cmake-build-default-mingw/igor_shit.exe
+cmake-build-default-mingw/Testing/Temporary/LastTest.log

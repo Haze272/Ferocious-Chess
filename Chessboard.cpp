@@ -682,12 +682,8 @@ string Chessboard::ToString() {
 }
 
 bool Chessboard::MovePiece(ChessPosition& posFrom, ChessPosition& posTo) {
-<<<<<<< Updated upstream
-    VecOfPositions *validPosisitions = GetValidMoves(posFrom);
-=======
     bool isMoved = false;
     VecOfPositions available = GetValidMoves(posFrom);
->>>>>>> Stashed changes
 
     int x1 = posFrom.getPosY();
     int y1 = posFrom.getPosX();
@@ -696,32 +692,17 @@ bool Chessboard::MovePiece(ChessPosition& posFrom, ChessPosition& posTo) {
     int y2 = posTo.getPosX();
 
     Piece buffer = m_board[x1][y1];
-    m_board[x1][y1] = Piece();
-    m_board[x2][y2] = buffer;
 
-<<<<<<< Updated upstream
-    VecOfPositions *validPosisitions1 = GetValidMoves(posTo);
-
-    for (auto pos: *validPosisitions) {
-        cout << pos.getPosX() << " " << pos.getPosY() << endl;
-    }
-
-    for (auto pos1: *validPosisitions1) {
-        cout << pos1.getPosX() << " " << pos1.getPosY() << endl;
-    }
-
-    return 1;
-=======
     for (ChessPosition p : available) {
         if (p.getPosX() == posTo.getPosX() && p.getPosY() == posTo.getPosY()) {
-            cout << "ХУЙ" << endl;
             isMoved = true;
+            m_board[x1][y1] = Piece();
+            m_board[x2][y2] = buffer;
             break;
         }
     }
 
     return isMoved;
->>>>>>> Stashed changes
 }
 
 

@@ -24,9 +24,14 @@ int main() {
 
     cout << juega1.ToString();
 
-    cout << "-------------Moving piece-------------" << endl;
+    cout << "-------------Moving piece (false)-------------" << endl;
     ChessPosition cp1("a3");
     cout << juega1.MovePiece(cp, cp1) << endl;
+    cout << juega1.ToString();
+
+    cout << "-------------Moving piece (true)-------------" << endl;
+    ChessPosition cp2("a7");
+    cout << juega1.MovePiece(cp, cp2) << endl;
     cout << juega1.ToString();
 
     return 0;
