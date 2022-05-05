@@ -15,7 +15,7 @@ int main() {
 
     ChessPosition cp("a8");
 
-    VecOfPositions mn = *(juega1.GetValidMoves(cp));
+    VecOfPositions mn = juega1.GetValidMoves(cp);
     for (auto& v : mn) {
         cout << v.getPosX() << " " << v.getPosY() << endl;
     }
@@ -25,8 +25,8 @@ int main() {
     cout << juega1.ToString();
 
     cout << "-------------Moving piece-------------" << endl;
-    ChessPosition cp1("a4");
-    juega1.MovePiece(cp, cp1);
+    ChessPosition cp1("a3");
+    cout << juega1.MovePiece(cp, cp1) << endl;
     cout << juega1.ToString();
 
     return 0;
