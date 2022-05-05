@@ -161,7 +161,7 @@ void Chessboard::LoadBoardFromFile(string& path)
     }
 }
 
-VecOfPositions* Chessboard::GetValidMoves(ChessPosition& pos)
+VecOfPositions Chessboard::GetValidMoves(ChessPosition& pos)
 {
     /*
     ChessPosition *p1 = new ChessPosition();
@@ -169,7 +169,7 @@ VecOfPositions* Chessboard::GetValidMoves(ChessPosition& pos)
     p1->setPosY(digit);
     validMoves->push_back(*p1);
     */
-    VecOfPositions* validMoves = new VecOfPositions;
+    VecOfPositions validMoves;
 
     int x = pos.getPosX();
     int y = pos.getPosY();
@@ -186,7 +186,7 @@ VecOfPositions* Chessboard::GetValidMoves(ChessPosition& pos)
                     ChessPosition *p1 = new ChessPosition();
                     p1->setPosX(x+1);
                     p1->setPosY(y);
-                    validMoves->push_back(*p1);
+                    validMoves.push_back(*p1);
                 }
             }
             if(getBoard(x+1, y+1).getColor() != getBoard(x,y).getColor()) {
@@ -194,7 +194,7 @@ VecOfPositions* Chessboard::GetValidMoves(ChessPosition& pos)
                     ChessPosition *p1 = new ChessPosition();
                     p1->setPosX(x+1);
                     p1->setPosY(y+1);
-                    validMoves->push_back(*p1);
+                    validMoves.push_back(*p1);
                 }
             }
             if(getBoard(x+1, y-1).getColor() != getBoard(x,y).getColor()) {
@@ -202,7 +202,7 @@ VecOfPositions* Chessboard::GetValidMoves(ChessPosition& pos)
                     ChessPosition *p1 = new ChessPosition();
                     p1->setPosX(x+1);
                     p1->setPosY(y-1);
-                    validMoves->push_back(*p1);
+                    validMoves.push_back(*p1);
                 }
             }
             if(getBoard(x, y+1).getColor() != getBoard(x,y).getColor()) {
@@ -210,7 +210,7 @@ VecOfPositions* Chessboard::GetValidMoves(ChessPosition& pos)
                     ChessPosition *p1 = new ChessPosition();
                     p1->setPosX(x);
                     p1->setPosY(y+1);
-                    validMoves->push_back(*p1);
+                    validMoves.push_back(*p1);
                 }
             }
             if(getBoard(x, y-1).getColor() != getBoard(x,y).getColor()) {
@@ -218,7 +218,7 @@ VecOfPositions* Chessboard::GetValidMoves(ChessPosition& pos)
                     ChessPosition *p1 = new ChessPosition();
                     p1->setPosX(x);
                     p1->setPosY(y-1);
-                    validMoves->push_back(*p1);
+                    validMoves.push_back(*p1);
                 }
             }
             if(getBoard(x-1, y).getColor() != getBoard(x,y).getColor()) {
@@ -226,7 +226,7 @@ VecOfPositions* Chessboard::GetValidMoves(ChessPosition& pos)
                     ChessPosition *p1 = new ChessPosition();
                     p1->setPosX(x-1);
                     p1->setPosY(y);
-                    validMoves->push_back(*p1);
+                    validMoves.push_back(*p1);
                 }
             }
             if(getBoard(x-1, y+1).getColor() != getBoard(x,y).getColor()) {
@@ -234,7 +234,7 @@ VecOfPositions* Chessboard::GetValidMoves(ChessPosition& pos)
                     ChessPosition *p1 = new ChessPosition();
                     p1->setPosX(x-1);
                     p1->setPosY(y+1);
-                    validMoves->push_back(*p1);
+                    validMoves.push_back(*p1);
                 }
             }
             if(getBoard(x-1, y-1).getColor() != getBoard(x,y).getColor()) {
@@ -242,7 +242,7 @@ VecOfPositions* Chessboard::GetValidMoves(ChessPosition& pos)
                     ChessPosition *p1 = new ChessPosition();
                     p1->setPosX(x-1);
                     p1->setPosY(y-1);
-                    validMoves->push_back(*p1);
+                    validMoves.push_back(*p1);
                 }
             }
 
