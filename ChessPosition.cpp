@@ -1,22 +1,19 @@
-//
-// Created by studi on 01.05.2022.
-//
-
+#include "ChessPosition.hpp"
+#include "GameInfo.h"
 #include <iostream>
+#include <string>
 #include <cstring>
-#include "ChessPosition.h"
 
-using namespace std;
 
 ChessPosition::ChessPosition(string posicio)
 {
-
+    
     int n = posicio.length();
     char coordenades[n];
-
-    strcpy(coordenades, posicio.c_str());
-
-
+     
+        strcpy(coordenades, posicio.c_str());
+    
+    
     switch(coordenades[n-1])
     {
         case '1': setPosY(7);
@@ -36,7 +33,7 @@ ChessPosition::ChessPosition(string posicio)
         case '8': setPosY(0);
             break;
     }
-
+    
     switch(coordenades[n-2])
     {
         case 'a': setPosX(0);
@@ -56,8 +53,8 @@ ChessPosition::ChessPosition(string posicio)
         case 'h': setPosX(7);
             break;
     }
-
-
+    
+    
 }
 
 void ChessPosition::operator<<(ChessPosition& pos)
@@ -65,9 +62,9 @@ void ChessPosition::operator<<(ChessPosition& pos)
     string posicio;
     char columna;
     int fila;
-
+    
     posicio= "";
-
+    
     switch (getPosX())
     {
         case 0: columna = 'a';
@@ -79,21 +76,21 @@ void ChessPosition::operator<<(ChessPosition& pos)
         case 6: columna = 'g';
         case 7: columna = 'h';
     }
-
+    
     fila = getPosY() + 1;
-
-
-
+    
+    
+    
     posicio += to_string(columna);
     posicio += to_string(fila);
-
+    
     cout << posicio;
 }
 
 
-bool ChessPosition::operator==(ChessPosition& pos1)
+ bool ChessPosition::operator==(const ChessPosition& pos1) const
 {
-    return(getPosX() == pos1.getPosX() && getPosY() == pos1.getPosY());
+     return(getPosX() == pos1.getPosX() && getPosY() == pos1.getPosY());
 }
 
 
@@ -110,3 +107,4 @@ bool ChessPosition::operator==(ChessPosition& pos1)
  (0,0)----------> X (cols)
       a b c ...
 */
+
