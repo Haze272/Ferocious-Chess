@@ -164,7 +164,7 @@ void Chessboard::LoadBoardFromFile(string& path)
 VecOfPositions Chessboard::GetValidMoves(ChessPosition& pos)
 {
     /*
-    ChessPosition *p1 = new ChessPosition();
+    ChessPosition p1;
     p1->setPosX(letter);
     p1->setPosY(digit);
     validMoves->push_back(*p1);
@@ -183,66 +183,66 @@ VecOfPositions Chessboard::GetValidMoves(ChessPosition& pos)
 
             if(getBoard(x+1, y).getColor() != getBoard(x,y).getColor()) {
                 if (getBoard(x+1, y).ConvertToString() == "__") {
-                    ChessPosition *p1 = new ChessPosition();
-                    p1->setPosX(x+1);
-                    p1->setPosY(y);
-                    validMoves.push_back(*p1);
+                    ChessPosition p1;
+                    p1.setPosX(x+1);
+                    p1.setPosY(y);
+                    validMoves.push_back(p1);
                 }
             }
             if(getBoard(x+1, y+1).getColor() != getBoard(x,y).getColor()) {
                 if (getBoard(x+1, y+1).ConvertToString() == "__") {
-                    ChessPosition *p1 = new ChessPosition();
-                    p1->setPosX(x+1);
-                    p1->setPosY(y+1);
-                    validMoves.push_back(*p1);
+                    ChessPosition p1;
+                    p1.setPosX(x+1);
+                    p1.setPosY(y+1);
+                    validMoves.push_back(p1);
                 }
             }
             if(getBoard(x+1, y-1).getColor() != getBoard(x,y).getColor()) {
                 if (getBoard(x+1, y-1).ConvertToString() == "__") {
-                    ChessPosition *p1 = new ChessPosition();
-                    p1->setPosX(x+1);
-                    p1->setPosY(y-1);
-                    validMoves.push_back(*p1);
+                    ChessPosition p1;
+                    p1.setPosX(x+1);
+                    p1.setPosY(y-1);
+                    validMoves.push_back(p1);
                 }
             }
             if(getBoard(x, y+1).getColor() != getBoard(x,y).getColor()) {
                 if (getBoard(x, y+1).ConvertToString() == "__") {
-                    ChessPosition *p1 = new ChessPosition();
-                    p1->setPosX(x);
-                    p1->setPosY(y+1);
-                    validMoves.push_back(*p1);
+                    ChessPosition p1;
+                    p1.setPosX(x);
+                    p1.setPosY(y+1);
+                    validMoves.push_back(p1);
                 }
             }
             if(getBoard(x, y-1).getColor() != getBoard(x,y).getColor()) {
                 if (getBoard(x, y-1).ConvertToString() == "__") {
-                    ChessPosition *p1 = new ChessPosition();
-                    p1->setPosX(x);
-                    p1->setPosY(y-1);
-                    validMoves.push_back(*p1);
+                    ChessPosition p1;
+                    p1.setPosX(x);
+                    p1.setPosY(y-1);
+                    validMoves.push_back(p1);
                 }
             }
             if(getBoard(x-1, y).getColor() != getBoard(x,y).getColor()) {
                 if (getBoard(x-1, y).ConvertToString() == "__") {
-                    ChessPosition *p1 = new ChessPosition();
-                    p1->setPosX(x-1);
-                    p1->setPosY(y);
-                    validMoves.push_back(*p1);
+                    ChessPosition p1;
+                    p1.setPosX(x-1);
+                    p1.setPosY(y);
+                    validMoves.push_back(p1);
                 }
             }
             if(getBoard(x-1, y+1).getColor() != getBoard(x,y).getColor()) {
                 if (getBoard(x-1, y+1).ConvertToString() == "__") {
-                    ChessPosition *p1 = new ChessPosition();
-                    p1->setPosX(x-1);
-                    p1->setPosY(y+1);
-                    validMoves.push_back(*p1);
+                    ChessPosition p1;
+                    p1.setPosX(x-1);
+                    p1.setPosY(y+1);
+                    validMoves.push_back(p1);
                 }
             }
             if(getBoard(x-1, y-1).getColor() != getBoard(x,y).getColor()) {
                 if (getBoard(x-1, y-1).ConvertToString() == "__") {
-                    ChessPosition *p1 = new ChessPosition();
-                    p1->setPosX(x-1);
-                    p1->setPosY(y-1);
-                    validMoves.push_back(*p1);
+                    ChessPosition p1;
+                    p1.setPosX(x-1);
+                    p1.setPosY(y-1);
+                    validMoves.push_back(p1);
                 }
             }
 
@@ -682,7 +682,12 @@ string Chessboard::ToString() {
 }
 
 bool Chessboard::MovePiece(ChessPosition& posFrom, ChessPosition& posTo) {
+<<<<<<< Updated upstream
     VecOfPositions *validPosisitions = GetValidMoves(posFrom);
+=======
+    bool isMoved = false;
+    VecOfPositions available = GetValidMoves(posFrom);
+>>>>>>> Stashed changes
 
     int x1 = posFrom.getPosY();
     int y1 = posFrom.getPosX();
@@ -694,6 +699,7 @@ bool Chessboard::MovePiece(ChessPosition& posFrom, ChessPosition& posTo) {
     m_board[x1][y1] = Piece();
     m_board[x2][y2] = buffer;
 
+<<<<<<< Updated upstream
     VecOfPositions *validPosisitions1 = GetValidMoves(posTo);
 
     for (auto pos: *validPosisitions) {
@@ -705,6 +711,17 @@ bool Chessboard::MovePiece(ChessPosition& posFrom, ChessPosition& posTo) {
     }
 
     return 1;
+=======
+    for (ChessPosition p : available) {
+        if (p.getPosX() == posTo.getPosX() && p.getPosY() == posTo.getPosY()) {
+            cout << "ХУЙ" << endl;
+            isMoved = true;
+            break;
+        }
+    }
+
+    return isMoved;
+>>>>>>> Stashed changes
 }
 
 
