@@ -1,14 +1,5 @@
-//
-// Created by studi on 01.05.2022.
-//
-
-#ifndef IGOR_SHIT_CHESSBOARD_H
-#define IGOR_SHIT_CHESSBOARD_H
-
-
-#include "Piece.h"
-#include "ChessPosition.h"
-#include "GameInfo.h"
+#ifndef Chessboard_hpp
+#define Chessboard_hpp
 
 #include <stdio.h>
 #include <cstring>
@@ -22,22 +13,21 @@ class Chessboard {
 public:
     Chessboard();
 
-    Piece getBoard(int i, int j){return m_board[i][j];}
+    Piece getBoard(int, int);
 
-    void            LoadBoardFromFile(string& path);
-    VecOfPositions  GetValidMoves (ChessPosition& pos);
-    bool            MovePiece (ChessPosition& posFrom, ChessPosition& posTo);
+    void            LoadBoardFromFile(const string& path);
+    VecOfPositions  GetValidMoves (const ChessPosition& pos);
+    bool            MovePiece (const ChessPosition& posFrom, const  ChessPosition& posTo);
     string          ToString ();
-    ChessPieceColor GetPieceColorAtPos(ChessPosition& pos);
-    ChessPieceType  GetPieceTypeAtPos(ChessPosition& pos);
-
-    // ESTEBAN
-    void addFigure(Piece piece, int x, int y);
-    char numToLetter(int govno);
-
+    ChessPieceColor GetPieceColorAtPos(const ChessPosition& pos) const;
+    ChessPieceType GetPieceTypeAtPos(const ChessPosition& pos) const;
+    char numToLetter(int num);
+    
 private:
     Piece m_board[NUM_COLS][NUM_ROWS];
-
+    
 };
 
-#endif //IGOR_SHIT_CHESSBOARD_H
+
+#endif /* Chessboard_hpp */
+

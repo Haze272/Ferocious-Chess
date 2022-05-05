@@ -1,7 +1,7 @@
 #include <string>
 #include <iostream>
 #include <cstring>
-#include "Piece.hpp"
+#include "Piece.h"
 using namespace std;
 
 Piece::Piece()

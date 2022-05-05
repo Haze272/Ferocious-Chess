@@ -8,7 +8,7 @@
 #include <iostream>
 #include <algorithm>
 #include <sstream>
-#include "Chessboard.hpp"
+#include "Chessboard.h"
 using namespace std;
 
 const int MAX_MOVIMENTS = 28;

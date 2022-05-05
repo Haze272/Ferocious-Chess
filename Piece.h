@@ -1,11 +1,11 @@
-//
-// Created by studi on 01.05.2022.
-//
+#ifndef Piece_hpp
+#define Piece_hpp
 
-#ifndef IGOR_SHIT_PIECE_H
-#define IGOR_SHIT_PIECE_H
-
+#include <stdio.h>
+#include <vector>
 #include <string>
+#include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -31,11 +31,10 @@ class Piece {
 
 public:
     Piece();
-    void setType(ChessPieceType type){ m_type = type;}
-    void setColor(ChessPieceColor color){ m_color = color;}
-    int getType(){ return m_type;}
-    int getColor(){ return m_color;}
-
+    void setType(ChessPieceType);
+    void setColor(ChessPieceColor);
+    ChessPieceType getType() const;
+    ChessPieceColor getColor() const;
     string ConvertToString();
 
 private:
@@ -44,4 +43,4 @@ private:
 };
 
 
-#endif //IGOR_SHIT_PIECE_H
+#endif /* Piece_hpp */

@@ -8,7 +8,7 @@
 #ifndef GameInfo_h
 #define GameInfo_h
 #include <vector>
-#include "ChessPosition.hpp"
+#include "ChessPosition.h"
 
 struct Direction {
     int dirX;

@@ -1,4 +1,4 @@
-#include "Chessboard.hpp"
+#include "Chessboard.h"
 #include <iostream>
 #include <fstream>
 #include <string>

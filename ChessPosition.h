@@ -1,35 +1,29 @@
-//
-// Created by studi on 01.05.2022.
-//
+#ifndef ChessPosition_hpp
+#define ChessPosition_hpp
 
-#ifndef IGOR_SHIT_CHESSPOSITION_H
-#define IGOR_SHIT_CHESSPOSITION_H
-
+#include <stdio.h>
 #include <string>
-
+#include <cstring>
 using namespace std;
 
 class ChessPosition {
 
 public:
     ChessPosition(){m_posX=0; m_posY=0;}
-    ChessPosition(string posicio);
-
-    void setPosX(int posxnew){m_posX = posxnew;}
-    void setPosY(int posynew){m_posY = posynew;}
-
-    int getPosX() {return m_posX;}
-    int getPosY() {return m_posY;}
-
-    bool operator == (ChessPosition& pos1);
-    void operator << (ChessPosition& pos);
-
+    ChessPosition(const string posicio);
+    void setPosX(const int posxnew){m_posX = posxnew;}
+    void setPosY(const int posynew){m_posY = posynew;}
+    int getPosX() const {return m_posX;}
+    int getPosY() const {return m_posY;}
+    bool operator== (const ChessPosition& pos1) const;
+    void operator<< (ChessPosition& pos);
+    
 private:
     int m_posX; //Column
     int m_posY; //Row
-
-
+    
+    
 };
 
 
-#endif //IGOR_SHIT_CHESSPOSITION_H
+#endif /* ChessPosition_hpp */
